@@ -1,0 +1,108 @@
+@use "sass:color";
+@use '../abstracts/mixins' as *;
+@use '../abstracts/colors' as *;
+@use '../abstracts/breakpoints' as *;
+
+.backdrop {
+  @include flex-column($justify: center, $align: center);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.modal {
+  @include flex-column($justify: center, $align: center);
+  width: 40rem;
+  height: 30rem;
+  background-color: $bg-modal;
+  background-image: url('/graph-paper.jpg');
+  border-radius: 0% 100% 8% 92% / 89% 0% 100% 11%;
+  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
+  top: -200px;
+  opacity: 0;
+  visibility: hidden;
+  position: relative;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+
+  @media (max-width: $tablet-screen) {
+    width: 30rem;
+    height: 25rem;
+  }
+
+  &.visible {
+    transform: translateY(200px);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &::before {
+    content: '';
+    width: 5.5rem;
+    height: 5.5rem;
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    background-image: url('/attach.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  &::after {
+    content: '';
+    width: 5.5rem;
+    height: 5.5rem;
+    position: absolute;
+    bottom: -10px;
+    right: 10px;
+    transform: rotate(188deg);
+    background-image: url('/attach.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  &-content {
+    @include flex-column($gap: 2.5rem, $justify: center, $align: center);
+  }
+
+  &-message {
+    @include font-title($size: 3.5rem);
+  }
+
+  &-secret-word {
+    @include font-title($size: 2.6rem);
+  }
+
+  &-replay-button {
+    @include flex-column($justify: center, $align: center);
+    width: 4rem;
+    height: 4rem;
+    margin-top: 2rem;
+    transition: transform 0.2s ease-in-out;
+
+    &-img {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    &:hover {
+      transform: rotate(-180deg);
+    }
+
+    &:active {
+      transform: scale(0.9) rotate(-180deg);
+    }
+  }
+}

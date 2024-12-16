@@ -1,0 +1,86 @@
+@use '../abstracts/mixins.scss' as *;
+@use '../abstracts/colors' as *;
+@use '../abstracts/breakpoints' as *;
+
+:root {
+  font-size: 10px;
+}
+
+html,
+body,
+div,
+p,
+ul,
+ol,
+li,
+a,
+form,
+button,
+input {
+  @include font-main();
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include font-title();
+  margin: 0;
+  padding: 0;
+}
+
+button,
+input,
+label {
+  border: none;
+  outline: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+body {
+  @include font-main();
+  background-color: $bg-page;
+  background-image: url('/graph-paper.jpg');
+}
+
+.app {
+  @include flex-column($gap: 4rem, $align: center);
+  min-height: 100vh;
+  color: $font-primary;
+  padding: 2rem 1rem;
+}
+
+.title {
+  @include font-title($size: 4rem);
+  text-transform: uppercase;
+}
+
+.container {
+  @include flex-row($gap: 2rem, $justify: space-evenly);
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+
+  @media (max-width: $large-screen) {
+    @include flex-column($gap: 2rem, $align: center);
+  }
+}
+
+.hangman-box {
+  @include flex-column($gap: 2rem, $align: center);
+}
+
+.game-box {
+  @include flex-column($gap: 4rem, $align: center);
+}
+
+.guesses-text b {
+  color: $error-color;
+}

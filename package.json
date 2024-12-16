@@ -1,0 +1,31 @@
+{
+  "name": "hangman",
+  "description": "A simple hangman game",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host --open",
+    "lint": "eslint --ext .js ./",
+    "lint:fix": "eslint --fix --ext .js ./",
+    "format": "prettier --write \"./**/*.{js,jsx,json,css}\"",
+    "build": "vite build",
+    "preview": "vite preview --open",
+    "buildpreview": "vite build && vite preview --open"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "prettier": "^3.3.3",
+    "sass": "^1.82.0",
+    "vite": "5.4.11",
+    "vite-plugin-eslint": "^1.8.1"
+  },
+  "dependencies": {
+    "@fontsource/schoolbell": "^5.1.0",
+    "the-new-css-reset": "^1.11.3"
+  }
+}

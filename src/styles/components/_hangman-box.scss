@@ -1,0 +1,58 @@
+.wrapper {
+  width: 70%;
+  position: relative;
+}
+
+.head {
+  width: 80px;
+  position: absolute;
+  top: 70px;
+  right: -5px;
+  z-index: 10;
+}
+
+.body {
+  position: absolute;
+  top: 110px;
+  right: 32px;
+}
+
+.hand {
+  position: absolute;
+  top: 155px;
+
+  &-left {
+    right: -32px;
+  }
+
+  &-right {
+    right: 32px;
+  }
+}
+
+.leg {
+  position: absolute;
+  top: 238px;
+
+  &-left {
+    right: -31px;
+  }
+
+  &-right {
+    right: 31px;
+  }
+}
+
+.head,
+.body,
+.hand,
+.leg {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.show {
+  opacity: 1;
+  visibility: visible;
+}
